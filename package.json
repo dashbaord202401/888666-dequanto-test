@@ -1,0 +1,66 @@
+{
+  "name": "0xweb-test",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "build": "tsc --build tsconfig.json",
+    "dev1": "ts-node --project ./tsconfig.json -r tsconfig-paths/register ./index.ts",
+    "dev2": "atma run ./index.ts"
+  },
+  "atma": {
+    "plugins": [
+      "atma-loader-ts"
+    ],
+    "settings": {
+      "include": {
+        "amd": true,
+        "extentionDefault": {
+          "js": "ts"
+        },
+        "routes": {
+          "@dequanto": "dequanto/src/{0}",
+          "@dequanto-contracts": "dequanto/contracts/{0}",
+          "@0xc": "0xc/{0}"
+        }
+      },
+      "atma-loader-ts": {
+        "typescript": {
+          "compilerOptions": {
+            "module": "AMD",
+            "sourceMap": false,
+            "experimentalDecorators": true,
+            "esModuleInterop": true,
+            "allowSyntheticDefaultImports": true,
+            "target": "ES2020"
+          }
+        }
+      }
+    }
+  },
+  "dependencies": {
+    "@noble/curves": "^1.2.0",
+    "@noble/hashes": "^1.3.2",
+    "@scure/bip32": "^1.3.2",
+    "@scure/bip39": "^1.2.1",
+    "@solidity-parser/parser": "^0.16.0",
+    "a-di": "^1.0.25",
+    "alot": "^0.3.7",
+    "appcfg": "^0.4.64",
+    "atma": "^0.15.20",
+    "atma-io": "^1.2.67",
+    "atma-utils": "^0.2.51",
+    "everlog": "^1.0.10",
+    "isomorphic-ws": "^5.0.0",
+    "memd": "^0.3.12"
+  },
+  "devDependencies": {
+    "0xweb": "^0.10.33",
+    "atma-loader-ts": "^1.1.20",
+    "includejs": "^0.16.9",
+    "ts-node": "^10.9.1",
+    "tsc-alias": "^1.8.6",
+    "tsconfig-paths": "^4.0.0",
+    "typescript": "^4.9.5"
+  }
+}
